@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+strong {
+  font-weight: bold;
+}
+
 body {
   background-color: #F3F3F3;
 
@@ -54,13 +58,54 @@ footer input {
   width: 85%;
 
   font-size: 18px;
-  font-style: italic;
 }
 
 footer input::placeholder {
   color: #000;
+
+  font-style: italic;
 }
 
 .icon-footer {
   font-size: 30px;
+
+  cursor: pointer;
+}
+
+main {
+  margin-top: 120px;
+}
+
+main .chat {
+  display: inline-block;
+
+  width: 100%;
+
+  margin-top: 5px;
+
+  padding: 10px;
+
+  font-size: 14px;
+
+  border-radius: 2px;
+
+  background-color: #fff;
+}
+
+main .chat span:nth-child(1) {
+  color: #AAAAAA;
+}
+
+main .chat span:nth-child(1), span:nth-child(2) {
+  margin-right: 7px;
+}
+
+main .chat-info {
+  background-color: #DCDCDC;
+}
+
+main .chat-private {
+  background-color: #FFDEDE;
+
+  line-height: 1.5;
 }
