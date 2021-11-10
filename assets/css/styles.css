@@ -73,7 +73,7 @@ footer input::placeholder {
 }
 
 main {
-  margin-top: 120px;
+  margin: 120px 0 80px 0;
 }
 
 main .chat {
@@ -82,10 +82,10 @@ main .chat {
   width: 100%;
 
   margin-top: 5px;
-
   padding: 10px;
 
   font-size: 14px;
+  line-height: 1.5;
 
   border-radius: 2px;
 
@@ -96,7 +96,12 @@ main .chat span:nth-child(1) {
   color: #AAAAAA;
 }
 
-main .chat span:nth-child(1), span:nth-child(2) {
+main .chat span:nth-child(2) {
+  margin-right: 4px;
+}
+
+
+main .chat span:nth-child(1), .chat-info span:nth-child(2) {
   margin-right: 7px;
 }
 
@@ -104,8 +109,7 @@ main .chat-info {
   background-color: #DCDCDC;
 }
 
-main .chat-private {
+main .chat-reserved {
   background-color: #FFDEDE;
-
-  line-height: 1.5;
 }
+
