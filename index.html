@@ -17,8 +17,68 @@
 <body>
   <header>
     <img src="assets/img/logo.png" />
-    <ion-icon name="people" class="icon-header"></ion-icon>
+    <ion-icon name="people" class="icon-header" onclick="nav_bar()"></ion-icon>
   </header>
+
+  <nav class="nav-bar dn">
+    <div class="backdrop" onclick="nav_bar()"></div>
+
+    <div class="nav-title">
+      <p>Escolha um contato</p>
+      <p>para enviar mensagem:</p>
+    </div>
+
+    <ul>
+      <li onclick="selected(this)">
+        <div>
+          <ion-icon name="people" class="icon-nav"></ion-icon>
+          <div>Todos</div>
+        </div>
+        <span>
+          <ion-icon name="checkmark-sharp" class="icon-confirm"></ion-icon>
+        </span>
+      </li>
+      <li onclick="selected(this)">
+        <div>
+          <ion-icon name="person-circle" class="icon-nav"></ion-icon>
+          <div>João</div>
+        </div>
+        <span></span>
+      </li>
+      <li onclick="selected(this)">
+        <div>
+          <ion-icon name="person-circle" class="icon-nav"></ion-icon>
+          <div>Maria</div>
+        </div>
+        <span></span>
+      </li>
+    </ul>
+
+    <div class="nav-title">
+      <p>Escolha a visibilidade:</p>
+    </div>
+
+    <ul>
+      <li onclick="selected(this)">
+        <div>
+          <ion-icon name="lock-open" class="icon-nav"></ion-icon>
+          <div>Público</div>
+        </div>
+        <span>
+          <ion-icon name="checkmark-sharp" class="icon-confirm"></ion-icon>
+        </span>
+      </li>
+      <li onclick="selected(this)">
+        <div>
+          <ion-icon name="lock-closed" class="icon-nav"></ion-icon>
+          <div>Reservadamente</div>
+        </div>
+        <span>
+        </span>
+      </li>
+    </ul>
+    </div>
+  </nav>
 
   <main>
     <ul></ul>
@@ -26,7 +86,9 @@
 
   <footer>
     <input type="text" placeholder="Escreva aqui..." />
-    <ion-icon name="paper-plane-outline" class="icon-footer"></ion-icon>
+    <ion-icon name="paper-plane-outline" class="icon-footer" onclick="sendMessage(this)" onkeypress="sendMessage(event)"
+      data-identifier="send-message">
+    </ion-icon>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
