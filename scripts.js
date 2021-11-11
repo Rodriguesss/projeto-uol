@@ -32,7 +32,7 @@ function selected(element) {
   }
 }
 
-function registerUsername(name) {
+function login(name) {
   let promise = axios.post(`${url}participants`, { name })
 
   promise.then(processResponseName);
@@ -45,12 +45,12 @@ function processResponseName(promise) {
   } else {
     username = prompt('Desculpe este nome já esta em uso! Digite outro:')
 
-    registerUsername(username);
+    login(username);
   }
 }
 
 function processResponseNameCatch(error) {
-  alert(error);
+  window.location.reload()
 }
 
 function sendMessageKey(event, element) {
@@ -149,4 +149,4 @@ function start() {
   setInterval(keepConnection, 5000);
 }
 
-registerUsername(username);
+login(username);
