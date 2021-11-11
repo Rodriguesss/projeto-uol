@@ -53,12 +53,16 @@ function processResponseNameCatch(error) {
   alert(error);
 }
 
-function sendMessage(e) {
-  if (e.keyCode === 13) {
-    alert('DEI ENTER')
+function sendMessageKey(event, element) {
+  if (event.keyCode === 13) {
+    sendMessage(element.parentNode.children[1]);
   }
+}
 
-  let message = e.parentNode.children[0].value
+function sendMessage(element) {
+  let input = element.parentNode.children[0];
+  let message = input.value;
+  input.value = "";
 
   let promise = axios.post(`${url}messages`, {
     from: username,

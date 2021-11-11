@@ -85,9 +85,8 @@
   </main>
 
   <footer>
-    <input type="text" placeholder="Escreva aqui..." />
-    <ion-icon name="paper-plane-outline" class="icon-footer" onclick="sendMessage(this)" onkeypress="sendMessage(event)"
-      data-identifier="send-message">
+    <input type="text" placeholder="Escreva aqui..." onkeypress="sendMessageKey(event, this)" />
+    <ion-icon name="paper-plane-outline" class="icon-footer" onclick="sendMessage(this)" data-identifier="send-message">
     </ion-icon>
   </footer>
 
