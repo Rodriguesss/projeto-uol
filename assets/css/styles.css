@@ -91,6 +91,8 @@ header {
 
 .icon-header {
   font-size: 45px;
+
+  cursor: pointer;
 }
 
 .nav-bar {
@@ -134,7 +136,7 @@ header {
   padding: 0 15px;
 
   overflow: scroll;
-  height: 175px;
+  height: 500px;
 }
 
 .nav-bar li {
@@ -143,6 +145,8 @@ header {
   align-items: center;
 
   margin-bottom: 10px;
+
+  cursor: pointer;
 }
 
 .nav-bar li div {
