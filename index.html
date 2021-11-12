@@ -19,8 +19,9 @@
     <img src="assets/img/logo2.jpg" alt="Logo do Bate Papo UOL" height="150" width="150" />
 
     <div>
-      <input type="text" placeholder="Digite seu nome" />
-      <button type="button" onclick="setUsername()">Entrar</button>
+      <input type="text" placeholder="Digite seu nome" onkeypress="setUsernameKey(event)"
+        data-identifier="enter-name" />
+      <button type="button" onclick="setUsername()" data-identifier="start">Entrar</button>
     </div>
   </div>
 
@@ -81,12 +82,12 @@
 
   <footer>
     <div>
-      <input type="text" placeholder="Escreva aqui..." onkeypress="sendMessageKey(event, this)" />
-      <span data-identifier="visibility">Enviando para Todos (Público)</span>
+      <input type="text" placeholder="Escreva aqui..." onkeypress="sendMessageKey(event, this)"
+        data-identifier="send-message" />
+      <ion-icon name="paper-plane-outline" class="icon-footer" onclick="sendMessage(this)"></ion-icon>
     </div>
+    <span data-identifier="visibility">Enviando para Todos (Público)</span>
 
-    <ion-icon name="paper-plane-outline" class="icon-footer" onclick="sendMessage(this)" data-identifier="send-message">
-    </ion-icon>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

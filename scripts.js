@@ -3,6 +3,12 @@ let username;
 let userAndStatus = ['Todos', 'message'];
 let dataTime = '';
 
+function setUsernameKey(event) {
+  if (event.keyCode === 13) {
+    setUsername()
+  }
+}
+
 function setUsername() {
   username = document.querySelector('.login input').value;
 

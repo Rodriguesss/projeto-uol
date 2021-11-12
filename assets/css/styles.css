@@ -180,8 +180,7 @@ footer {
 
   z-index: 2;
 
-  display: flex;
-  justify-content: space-between;
+  display: inline-block;
 
   width: 100%;
 
@@ -193,7 +192,7 @@ footer {
 }
 
 footer input {
-  width: 85%;
+  width: 95%;
 
   font-size: 18px;
 
@@ -206,8 +205,14 @@ footer input::placeholder {
   font-style: italic;
 }
 
+footer div {
+  display: flex;
+  justify-content:space-between;
+}
+
 footer span {
   font-style: italic;
+  display: inline-block;
 }
 
 .icon-footer {
