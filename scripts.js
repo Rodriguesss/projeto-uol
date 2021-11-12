@@ -1,7 +1,19 @@
 const url = 'https://mock-api.driven.com.br/api/v4/uol/'
-let username = prompt('Insira seu nickname:')
+let username;
 let userAndStatus = ['Todos', 'message'];
 let dataTime = '';
+
+function setUsername() {
+  username = document.querySelector('.login input').value;
+
+  document.querySelector('.login div').innerHTML = `<img src="assets/img/loading.gif" />`
+
+  setTimeout(() => {
+    document.querySelector('.login').classList.add('dn');
+
+    login();
+  }, 2000);
+}
 
 function nav_bar() {
   document.querySelector('nav').classList.toggle('dn');
@@ -23,6 +35,9 @@ function selected(element) {
     userAndStatus[i] = ulArray[i].querySelector('.icon-confirm').parentNode.parentNode.querySelector('div h1').innerHTML;
   }
 
+  let msgInput = document.querySelector('footer span');
+  msgInput.innerHTML = `Enviando para ${userAndStatus[0]} (${userAndStatus[1]})`;
+
   if (ulArray[1]) {
     if (ulArray[1].querySelector('.icon-confirm').parentNode.parentNode.querySelector('div h1').innerHTML == 'Público') {
       userAndStatus[1] = 'message'
@@ -32,8 +47,8 @@ function selected(element) {
   }
 }
 
-function login(name) {
-  let promise = axios.post(`${url}participants`, { name })
+function login() {
+  let promise = axios.post(`${url}participants`, { name: username })
 
   promise.then(processResponseName);
   promise.catch(processResponseNameCatch);
@@ -43,9 +58,7 @@ function processResponseName(promise) {
   if (promise.status === 200) {
     start()
   } else {
-    username = prompt('Desculpe este nome já esta em uso! Digite outro:')
-
-    login(username);
+    window.location.reload()
   }
 }
 
@@ -167,7 +180,7 @@ function processResponseGetUsers(response) {
     if (keepUserSelected == users[i].name) {
       ul.innerHTML += userSelected.outerHTML;
     } else {
-      ul.innerHTML += `<li onclick="selected(this)">
+      ul.innerHTML += `<li onclick="selected(this)" data-identifier="participant">
       <div>
         <ion-icon name="person-circle" class="icon-nav"></ion-icon>
         <h1>${users[i].name}</h1>
@@ -187,5 +200,3 @@ function start() {
   setInterval(keepConnection, 5000);
   setInterval(getUsers, 10000);
 }
-
-login(username);

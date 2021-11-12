@@ -15,6 +15,15 @@
 </head>
 
 <body>
+  <div class="login">
+    <img src="assets/img/logo2.jpg" alt="Logo do Bate Papo UOL" height="150" width="150" />
+
+    <div>
+      <input type="text" placeholder="Digite seu nome" />
+      <button type="button" onclick="setUsername()">Entrar</button>
+    </div>
+  </div>
+
   <header>
     <img src="assets/img/logo.png" />
     <ion-icon name="people" class="icon-header" onclick="nav_bar()"></ion-icon>
@@ -71,7 +80,11 @@
   </main>
 
   <footer>
-    <input type="text" placeholder="Escreva aqui..." onkeypress="sendMessageKey(event, this)" />
+    <div>
+      <input type="text" placeholder="Escreva aqui..." onkeypress="sendMessageKey(event, this)" />
+      <span data-identifier="visibility">Enviando para Todos (Público)</span>
+    </div>
+
     <ion-icon name="paper-plane-outline" class="icon-footer" onclick="sendMessage(this)" data-identifier="send-message">
     </ion-icon>
   </footer>
