@@ -51,6 +51,8 @@ header {
   flex-direction: column;
 
   font-size: 16px;
+
+  overflow: scroll;
 }
 
 .nav-bar p {
@@ -72,6 +74,9 @@ header {
   justify-content: flex-start;
 
   padding: 0 15px;
+
+  overflow: scroll;
+  height: 175px;
 }
 
 .nav-bar li {
@@ -85,6 +90,16 @@ header {
 .nav-bar li div {
   display: flex;
   align-items: center;
+}
+
+.nav-bar li div h1 {
+  word-wrap: break-word;
+
+  width: 180px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;  
 }
 
 .nav-bar li .icon-nav {

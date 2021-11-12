@@ -20,11 +20,11 @@ function selected(element) {
   let ulArray = element.parentNode.parentNode.querySelectorAll('ul');
 
   for (let i = 0; i < ulArray.length; i++) {
-    userAndStatus[i] = ulArray[i].querySelector('.icon-confirm').parentNode.parentNode.querySelector('div div').innerHTML;
+    userAndStatus[i] = ulArray[i].querySelector('.icon-confirm').parentNode.parentNode.querySelector('div h1').innerHTML;
   }
 
   if (ulArray[1]) {
-    if (ulArray[1].querySelector('.icon-confirm').parentNode.parentNode.querySelector('div div').innerHTML == 'Público') {
+    if (ulArray[1].querySelector('.icon-confirm').parentNode.parentNode.querySelector('div h1').innerHTML == 'Público') {
       userAndStatus[1] = 'message'
     } else {
       userAndStatus[1] = 'private_message'
@@ -141,12 +141,51 @@ function processResponseMessages(promise) {
   totalMessages = data.length;
 }
 
+function getUsers() {
+  let promisse = axios.get('http://mock-api.driven.com.br/api/v4/uol/participants');
+
+  promisse.then(processResponseGetUsers);
+}
+
+function processResponseGetUsers(response) {
+  let ul = document.querySelector('nav ul');
+  let users = response.data;
+  let userSelected = document.querySelector('nav ul .icon-confirm').parentNode.parentNode;
+  let keepUserSelected;
+  let liArray = ul.querySelectorAll('li');
+
+  if (liArray.length > 1) {
+    for (let i = 1; i < liArray.length; i++) {
+      if (userSelected.children[0].innerHTML == liArray[i].children[0].innerHTML) {
+        keepUserSelected = liArray[i].children[0].children[1].innerHTML;
+      }
+      liArray[i].remove();
+    }
+  }
+
+  for (let i = 0; i < users.length; i++) {
+    if (keepUserSelected == users[i].name) {
+      ul.innerHTML += userSelected.outerHTML;
+    } else {
+      ul.innerHTML += `<li onclick="selected(this)">
+      <div>
+        <ion-icon name="person-circle" class="icon-nav"></ion-icon>
+        <h1>${users[i].name}</h1>
+      </div>
+      <span></span>
+    </li>`;
+    }
+  }
+}
+
 function start() {
   fetchMessages();
   keepConnection();
+  getUsers();
 
   setInterval(fetchMessages, 3000);
   setInterval(keepConnection, 5000);
+  setInterval(getUsers, 10000);
 }
 
 login(username);
