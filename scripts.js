@@ -56,20 +56,8 @@ function selected(element) {
 function login() {
   let promise = axios.post(`${url}participants`, { name: username })
 
-  promise.then(processResponseName);
-  promise.catch(processResponseNameCatch);
-}
-
-function processResponseName(promise) {
-  if (promise.status === 200) {
-    start()
-  } else {
-    window.location.reload()
-  }
-}
-
-function processResponseNameCatch(error) {
-  window.location.reload()
+  promise.then(() => start());
+  promise.catch(() => window.location.reload());
 }
 
 function sendMessageKey(event, element) {
@@ -90,18 +78,8 @@ function sendMessage(element) {
     type: userAndStatus[1]
   })
 
-  promise.then(processResponseSendMessage);
-  promise.catch(processResponseSendMessageCatch);
-}
-
-function processResponseSendMessage(response) {
-  console.log(response);
-
-  fetchMessages();
-}
-
-function processResponseSendMessageCatch() {
-  window.location.reload()
+  promise.then(() => fetchMessages());
+  promise.catch(() => window.location.reload());
 }
 
 function keepConnection() {
@@ -115,7 +93,6 @@ function fetchMessages() {
 }
 
 function processResponseMessages(promise) {
-  let ul = document.querySelector('ul');
   let data = promise.data;
 
   if (dataTime != data[data.length - 1].time) {
@@ -123,9 +100,7 @@ function processResponseMessages(promise) {
     let lis = ul.querySelectorAll('li');
 
     if (lis != "") {
-      for (let i = 0; i < lis.length; i++) {
-        lis[i].remove();
-      }
+      ul.innerHTML = "";
     }
 
     for (let i = 0; i < data.length; i++) {
@@ -156,8 +131,6 @@ function processResponseMessages(promise) {
     let lastLi = document.querySelector('ul .chat:last-child');
     lastLi.scrollIntoView();
   }
-
-  totalMessages = data.length;
 }
 
 function getUsers() {
