@@ -159,13 +159,15 @@ function processResponseGetUsers(response) {
     if (keepUserSelected == users[i].name) {
       ul.innerHTML += userSelected.outerHTML;
     } else {
-      ul.innerHTML += `<li onclick="selected(this)" data-identifier="participant">
-      <div>
-        <ion-icon name="person-circle" class="icon-nav"></ion-icon>
-        <h1>${users[i].name}</h1>
-      </div>
-      <span></span>
-    </li>`;
+      if (username != users[i].name) {
+        ul.innerHTML += `<li onclick="selected(this)" data-identifier="participant">
+        <div>
+          <ion-icon name="person-circle" class="icon-nav"></ion-icon>
+          <h1>${users[i].name}</h1>
+        </div>
+        <span></span>
+        </li>`;
+      }
     }
   }
 }
