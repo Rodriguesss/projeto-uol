@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+ion-icon[name="checkmark"] {
+  --ionicon-stroke-width: 120px;
+}
+
 strong {
   font-weight: bold;
 }
@@ -180,7 +184,7 @@ header {
 
 .icon-confirm {
   font-size: 15px;
-  color: green;
+  color: #28BB25;
 }
 
 footer {

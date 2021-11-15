@@ -34,7 +34,7 @@ function selected(element) {
     selectedExists.remove()
   }
 
-  element.querySelector('span').innerHTML = `<ion-icon name="checkmark-sharp" class="icon-confirm"></ion-icon>`;
+  element.querySelector('span').innerHTML = `<ion-icon name="checkmark" class="icon-confirm"></ion-icon>`;
 
   let ulArray = element.parentNode.parentNode.querySelectorAll('ul');
 
