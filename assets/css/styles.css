@@ -40,6 +40,12 @@ body {
   gap: 15px 0;
 }
 
+.login div span {
+  color: black;
+  font-weight: bold;
+  margin-top: -90px;
+}
+
 .login input {
   border: 1px solid #C2C2C2;
   border-radius: 5px;

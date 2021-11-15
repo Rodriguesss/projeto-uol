@@ -13,6 +13,7 @@ function setUsername() {
   username = document.querySelector('.login input').value;
 
   document.querySelector('.login div').innerHTML = `<img src="assets/img/loading.gif" />`
+  document.querySelector('.login div').innerHTML += `<span>Entrando...</span>`
 
   setTimeout(() => {
     document.querySelector('.login').classList.add('dn');
