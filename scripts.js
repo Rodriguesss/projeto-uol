@@ -4,7 +4,7 @@ let userAndStatus = ['Todos', 'message'];
 let dataTime = '';
 
 function setUsernameKey(event) {
-  if (event.keyCode === 13) {
+  if (event.key === 'Enter') {
     setUsername()
   }
 }
@@ -62,7 +62,7 @@ function login() {
 }
 
 function sendMessageKey(event, element) {
-  if (event.keyCode === 13) {
+  if (event.key === 'Enter') {
     sendMessage(element.parentNode.children[1]);
   }
 }
